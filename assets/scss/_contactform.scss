@@ -1,0 +1,43 @@
+#contact-form-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  background: #fff;
+  color: #000;
+  border-radius: 6px;
+  box-shadow: 0 0 4px 3px lightblue;
+  text-align: center;
+  padding: 15px;
+  width: 250px;
+
+  &.open {
+    display: block; 
+  }
+
+  .title {
+    font: 2rem 'Roboto';
+    margin-bottom: 15px;
+  }
+
+  form {
+    label {
+      display: block;
+      text-align: left;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      margin: 0 0 10px 0;
+      padding: 15px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

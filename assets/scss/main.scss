@@ -1,0 +1,199 @@
+@import "_reset";
+@import "_contactform";
+
+body {
+  background: url('../images/bg2.jpg');
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+#ui-overlay {
+  position: fixed;
+  top: 5%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  z-index: 15;
+
+  .social-icons-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    ul {
+      padding: 0;
+
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        display: block;
+        list-style: none;
+        color: #fff;
+        font-size: 30px;
+        margin: 10px 0;
+        transition: 0.4s;
+
+        &.fa-facebook:hover {
+          color: #4267b2;
+        }
+
+        &.fa-linkedin:hover {
+          color: #0077B5;
+        }
+
+        &.fa-github:hover {
+          color: #797979;
+        }
+
+        &:hover {
+          //font-size: 27px;
+          transition: 0.4s;
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+  .footer-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 220px;
+    text-align: center;
+    margin: 0 auto;
+
+    &::before {
+      position: absolute;
+      top: 8px;
+      left: -160px;
+      display: block;
+      content: "";
+      width: 150px;
+      background: #fff;
+      height: 2px;
+    }
+
+    &::after {
+      position: absolute;
+      top: 8px;
+      right: -160px;
+      display: block;
+      content: "";
+      width: 150px;
+      background: #fff;
+      height: 2px;
+    }
+  }
+
+  #logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 2rem;
+    width: 210px;
+    margin: 0 auto;
+
+    &:hover {
+      color: lightblue;
+      cursor: pointer;
+
+      span {
+        color: #fff;
+      }
+    }
+
+    span {
+      position: relative;
+      top: 15px;
+
+      &:hover {
+        color: pink;
+      }
+    }
+  }
+
+  #contact-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    background: none;
+    width: 50px;
+    height: 50px;
+    transition: 0.4s;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #fff;
+      font-size: 20px;
+      transition: 0.4s;
+    }
+  }
+}
+
+.main-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  .center-container {
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right :0;
+  }
+
+  h1 {
+    position: relative;
+    margin-top: 100px;
+    color: lightblue;
+    font-size: 3rem;
+    z-index: 10;
+  }
+
+  .main-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 350px;
+    width: 150px;
+    margin: 0 auto;
+    background: #000;
+    box-shadow: 5px 0px 84px 15px #62619c;
+    transform: rotateZ(30deg);
+  }
+}
+
+button {
+  color: #fff;
+  padding: 10px;
+  background: #000;
+
+  &.learn-more {
+    position: relative;
+    top: 20px;
+    background: transparent;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,0.8);
+    border-color: lightblue;
+  }
+}
