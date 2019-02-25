@@ -1,8 +1,8 @@
 #contact-form-container {
   display: none;
-  position: absolute;
-  top: 0;
-  right: 60px;
+  position: fixed;
+  top: 5%;
+  right: 140px;
   background: #fff;
   color: #000;
   border-radius: 6px;
@@ -10,9 +10,13 @@
   text-align: center;
   padding: 15px;
   width: 250px;
+  opacity: 0;
+  transition: 1s;
 
   &.open {
-    display: block; 
+    display: inline-block;
+    opacity: 1;
+    transition: 1s;
   }
 
   .title {
@@ -30,10 +34,14 @@
     textarea {
       display: block;
       width: 100%;
-      margin: 0 0 10px 0;
-      padding: 15px;
+      margin: 2px 0 20px 0;
+      padding: 5px;
       border: 1px solid #000;
       box-sizing: border-box;
+
+      &:focus {
+        outline: 0;
+      }
     }
 
     button {
