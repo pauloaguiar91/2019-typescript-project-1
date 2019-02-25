@@ -8,6 +8,7 @@ class Main {
     private contactFormContainer: HTMLElement;
     private contactLabel: HTMLElement;
     private paginationContainer: HTMLElement;
+    private pagItems: HTMLCollectionOf<Element>;
 
     constructor() {
         this.buttonLock = false;
@@ -15,8 +16,12 @@ class Main {
         this.contactFormContainer = <HTMLElement>document.getElementById('contact-form-container');
         this.contactLabel = <HTMLElement>document.getElementById('contact-label');
         this.paginationContainer = <HTMLElement>document.getElementById('pagination-container');
-        this.setupEvents();
-        this.generatePaginationContent();
+        this.pagItems = document.getElementsByClassName('pag-item');
+
+        this.generatePaginationContent(() => {
+            this.scrollEventHandler();
+            this.setupEvents();
+        });
     }
 
     private setupEvents(): void {
@@ -38,19 +43,46 @@ class Main {
 
         document.getElementsByTagName('body')[0].onclick = () => {
             if (this.contactFormContainer.classList.contains('open')) {
-                // this.contactFormContainer.classList.toggle('open');
+
             }
         };
+
+        for (let i = 0; i < this.pagItems.length; i ++) {
+            this.pagItems[i].addEventListener('click', this.pagItemClicked);
+        }
 
         window.onscroll = this.scrollEventHandler;
     }
 
-    private generatePaginationContent(): void {
+    private pagItemClicked(event: any): void {
+        const button = event.target;
+        const allPagItems = document.getElementsByClassName('pag-item');
+        const mainViewHeight = document.getElementsByClassName('main-area')[0].getBoundingClientRect().height;
+
+        if (this.buttonLock || button.classList.contains('active')) {
+            return;
+        }
+
+        this.buttonLock = true;
+
+        for (let i = 0; i < allPagItems.length ; i++) {
+            document.getElementsByClassName('pag-item')[i].classList.remove('active');
+
+        }
+        window.scrollTo(0, mainViewHeight * parseInt(button.getAttribute('data-number')) + 5);
+        this.buttonLock = false;
+    }
+
+    private generatePaginationContent(callback: any): void {
         const amountOfViews = document.getElementsByClassName('main-area').length;
-        const listItem = "<li class='pag-item'></li>";
 
         for (let i = 0; i < amountOfViews; i++) {
+            const listItem = "<li class='pag-item' data-number='" + i + "'></li>";
             this.paginationContainer.innerHTML += listItem;
+        }
+
+        if (typeof callback == 'function') {
+            callback();
         }
     }
 

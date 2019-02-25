@@ -203,19 +203,22 @@ button {
   top: 30%;
   padding: 0;
   list-style: none;
+  z-index: 25;
 
   li {
     display: block;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    width: 6px;
-    height: 6px;
     background: transparent;
     border: 2px solid #fff;
-    margin: 10px 0;
+    margin: 20px 0;
     transition: 0.7s;
 
-    &.active {
-      background: #fff;
+    &.active,
+    &:hover {
+      background: #FFF;
+      cursor: pointer;
       transition: 0.7s;
     }
   }

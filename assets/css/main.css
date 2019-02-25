@@ -234,16 +234,18 @@ button {
   right: 25%;
   top: 30%;
   padding: 0;
-  list-style: none; }
+  list-style: none;
+  z-index: 25; }
   #pagination-container li {
     display: block;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    width: 6px;
-    height: 6px;
     background: transparent;
     border: 2px solid #fff;
-    margin: 10px 0;
+    margin: 20px 0;
     transition: 0.7s; }
-    #pagination-container li.active {
-      background: #fff;
+    #pagination-container li.active, #pagination-container li:hover {
+      background: #FFF;
+      cursor: pointer;
       transition: 0.7s; }
